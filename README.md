@@ -15,3 +15,10 @@
       - [Scope](/jsDasar/scope/index.js)
 
       - [DOM](/jsDasar/dom)
+
+      - [Error](/jsDasar/error/)
+
+  3. JavaScript Intermediate
+        - [Object](/jsIntermediate/object/index.js)
+        
+        - [Web Storage](/jsIntermediate/webStorage/)
