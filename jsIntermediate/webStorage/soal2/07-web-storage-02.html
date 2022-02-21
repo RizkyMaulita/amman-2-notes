@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+
+    <title>Skilvul</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-light bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand">Skilvul</a>
+        <form id="form-username" class="d-flex">
+          <input
+            class="form-control me-2"
+            type="text"
+            placeholder="Username"
+            aria-label="username"
+            name="username"
+          />
+          <button class="btn btn-outline-primary" type="submit">login</button>
+        </form>
+        <div id="div-username" class="d-none d-flex">
+          <button
+            type="button"
+            class="my-auto btn btn-primary btn-sm position-relative h-50"
+          >
+            <span id="username"></span>
+            <span
+              id="badge-user"
+              class="top-0 position-absolute start-100 translate-middle badge rounded-pill bg-danger d-none"
+            >
+              10
+              <span class="visually-hidden">unread messages</span>
+            </span>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container py-5">
+      <div id="list-user" class="row"></div>
+    </div>
+
+    <!-- Optional JavaScript; choose one of the two! -->
+    <script type="module">
+      import githubUsers from "./07-web-storage-dummy-data.js";
+      // console.log(githubUsers, '<<< github users')
+      const elFormUsername = document.querySelector("#form-username");
+      const elDivUsername = document.querySelector("#div-username");
+      const elUsername = document.querySelector("#username");
+      const elListUser = document.querySelector("#list-user");
+      const elBadgeUser = document.querySelector("#badge-user");
+
+      // WEB STORAGE
+      let username = sessionStorage.getItem("username");
+
+      // console.log(username, '<<< username')
+      let profile = localStorage.getItem(username ? username : "");
+
+      if (username) {
+        elDivUsername.classList.remove('d-none')  //d-none itu class `display: none` bawaan bootstrap
+        elFormUsername.classList.add('d-none')
+        elUsername.innerHTML = username
+      }
+      // when user submit
+      elFormUsername.addEventListener('submit', function (event) {
+        event.preventDefault()
+        console.log('listener submit connect')
+
+        const formObject = new FormData(elFormUsername)
+        const formData = Object.fromEntries(formObject)
+
+        // console.log(formData, '<<< form data')
+        
+        const inputUsername = formData.username
+        if (inputUsername) {
+          // console.log(inputUsername)
+          sessionStorage.setItem('username', inputUsername)
+          elDivUsername.classList.remove('d-none')  //d-none itu class `display: none` bawaan bootstrap
+          elFormUsername.classList.add('d-none')
+          elUsername.innerHTML = inputUsername
+
+          username = inputUsername
+          console.log(username , '<<< username')
+        } else {
+          alert("Username can't be empty !")
+        }
+      })
+
+
+      githubUsers.forEach((user) => {
+        /*
+         Asumsi:
+          - Ketika dia follow, maka yang disimpan ke dalam localStorage ialah hanya usernameLoginnya saja 
+          - dan value dari local storage berupa array of username 
+          - yang akan disimpan ['mojodna', 'bmizerany', ...]
+        */
+        
+        let dataPertemanan = []
+
+        if (username) {
+          let dataPertemananFromLS = localStorage.getItem(username)
+          if (dataPertemananFromLS) {
+            dataPertemanan = JSON.parse(dataPertemananFromLS)
+          }
+        }
+        let isFollowed = false
+
+        for (let i = 0; i < dataPertemanan.length; i++) {
+          if (dataPertemanan[i] === user.login) {
+            isFollowed = true
+          }
+        }
+
+        const elCol = document.createElement("div");
+        elCol.classList.add("col-xs-12", "col-sm-6", "col-md-4", "col-lg-3");
+
+        const elCard = document.createElement("div");
+        elCard.classList.add("card");
+
+        const elCardImg = document.createElement("div");
+        elCard.classList.add("card-img-top");
+        elCard.setAttribute("src", user.avatar_url);
+
+        const elCardBody = document.createElement("div");
+        elCardBody.classList.add("card-body");
+
+        const elCardTitle = document.createElement("div");
+        elCardTitle.classList.add("card-title");
+        elCardTitle.innerHTML = user.login;
+
+        const elCardButton = document.createElement("button");
+        elCardButton.classList.add("btn", "btn-primary", "w-100");
+        elCardButton.setAttribute("type", "button");
+
+        if (isFollowed) {
+          elCardButton.classList.add('btn-success')
+          elCardButton.innerHTML = "Unfollow";
+        } else {
+          elCardButton.innerHTML = "Follow";
+        }
+
+        // ketika element Card di klik
+        elCardButton.addEventListener('click', function () {
+          console.log('click button follow / unfollow')
+        })
+        
+        elCardBody.appendChild(elCardTitle);
+        elCardBody.appendChild(elCardButton);
+        elCard.appendChild(elCardBody);
+        elCard.appendChild(elCardImg);
+        elCol.appendChild(elCard);
+
+        elListUser.appendChild(elCol);
+      });
+
+    </script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+
+  </body>
+</html>
