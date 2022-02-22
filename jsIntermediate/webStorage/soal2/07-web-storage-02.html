@@ -92,12 +92,29 @@
 
           username = inputUsername
           console.log(username , '<<< username')
+
+          elBadgeUser.classList.remove('d-none')
+          let dataPertemanan = []
+          let dataPertemananFromLS = localStorage.getItem(username)
+          if (dataPertemananFromLS) {
+            dataPertemanan = JSON.parse(dataPertemananFromLS)
+          }
+          elBadgeUser.innerHTML = dataPertemanan.length
         } else {
           alert("Username can't be empty !")
         }
       })
 
-
+      if (username) { // jika sudah login
+        elBadgeUser.classList.remove('d-none')
+        let dataPertemanan = []
+        let dataPertemananFromLS = localStorage.getItem(username)
+        if (dataPertemananFromLS) {
+          dataPertemanan = JSON.parse(dataPertemananFromLS)
+        }
+        elBadgeUser.innerHTML = dataPertemanan.length
+      }
+      
       githubUsers.forEach((user) => {
         /*
          Asumsi:
@@ -108,8 +125,9 @@
         
         let dataPertemanan = []
 
-        if (username) {
+        if (username) { // jika dia sudah login
           let dataPertemananFromLS = localStorage.getItem(username)
+          console.log(dataPertemananFromLS, '<<< isi local storage ')
           if (dataPertemananFromLS) {
             dataPertemanan = JSON.parse(dataPertemananFromLS)
           }
@@ -150,9 +168,64 @@
           elCardButton.innerHTML = "Follow";
         }
 
-        // ketika element Card di klik
+        // ketika element Card di klik => HARUS DIPAHAMI BAGIAN INI 
         elCardButton.addEventListener('click', function () {
           console.log('click button follow / unfollow')
+          console.log(user, '<<< user')
+
+          if (username) { // jika sudah login
+            let dataPertemananFromLS = localStorage.getItem(username)
+            if (dataPertemananFromLS) {
+              dataPertemanan = JSON.parse(dataPertemananFromLS)
+            }
+          }
+
+          // console.log(dataPertemanan, '<<< data pertemanan pada klik button')
+          const usernameGithub = user.login
+          // console.log(usernameGithub, '<<< username github yang di follow / unfollow')
+
+          let findUser = false
+
+          for (let i = 0; i < dataPertemanan.length; i++) {
+            if (dataPertemanan[i] === usernameGithub) {
+              findUser = true
+            }
+          }
+
+          if (findUser === true) {  // jika user sudah pernah di follow / ada di dalam data pertemanan
+            // harus menghapus data user tersebut dari data pertemenan => karena mau di unfollow
+            let newDataPertemanan = []
+
+            for (let i = 0; i < dataPertemanan.length; i++) {
+              if (dataPertemanan[i] !== usernameGithub) { // melakukan filter untuk data yang bukan usernameGithub tersebut
+                newDataPertemanan.push(dataPertemanan[i])
+              }
+            }
+
+            console.log(newDataPertemanan, '<<< new data pertemanan')
+            let newDataPertemananStr = JSON.stringify(newDataPertemanan)
+
+            if (username) { // jika sudah login
+              localStorage.setItem(username, newDataPertemananStr)
+              elCardButton.innerHTML = 'Follow'
+              elCardButton.classList.remove('btn-success')
+              elCardButton.classList.add('btn-primary')
+
+              elBadgeUser.innerHTML = newDataPertemanan.length
+            }
+          } else {  // jika user belum pernah di follow / belum ada di dalam data pertemenan
+            // harus menambahkan data user ke dalam data pertemanan => karena mau di follow
+            dataPertemanan.push(usernameGithub)
+
+            let dataPertemananStr = JSON.stringify(dataPertemanan)
+            if (username) { // jika sudah login
+              localStorage.setItem(username, dataPertemananStr)
+              elCardButton.innerHTML = 'Unfollow'
+              elCardButton.classList.add('btn-success')
+
+              elBadgeUser.innerHTML = dataPertemanan.length
+            }
+          }
         })
         
         elCardBody.appendChild(elCardTitle);
@@ -164,6 +237,8 @@
         elListUser.appendChild(elCol);
       });
 
+      
+      
     </script>
 
     <script
