@@ -1,0 +1,44 @@
+body {
+  min-height: 75rem;
+  /* padding-top: 4.5rem; */
+}
+
+.nav-link.active {
+  border-bottom: 3px solid #c53058;
+  color: #c53058 !important;
+}
+
+.bg-pink {
+  background-color: #c53058 !important;
+  color: white;
+  border-radius: 50px;
+} 
+
+.bg-pink:hover {
+  background-color: #3f7893 !important;
+  color: white;
+}
+
+.bg-grey {
+  background-color: #3f7893 !important;
+  color: white;
+  border-radius: 50px;
+}
+
+.bg-grey:hover {
+  background-color: #c53058 !important;
+  color: white;
+}
+
+.btn-outline-pink {
+  border: 2px solid #c53058;
+  border-radius: 20px;
+  color: #c53058;
+  padding: 5px 15px;
+  margin-bottom: 15px;
+}
+
+.btn-outline-pink:hover {
+  background-color: #c53058 !important;
+  color: white !important;
+}

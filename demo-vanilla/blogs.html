@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Demo Vanilla JS</title>
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="./assets/css/index.css">
+  <link rel="stylesheet" href="./assets/css/blogs.css">
+  <!-- Icon -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+ 
+</head>
+<body>
+   <!-- Header -->
+   <header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="./index.html">BLOVING</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <!-- Navbar sebelah kiri -->
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link " aria-current="page" href="./index.html#home">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./index.html#about">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="#">Blogs</a>
+            </li>
+          </ul>
+          <!-- Navbar sebelah kanan -->
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="./login.html" id="nav-login">Login</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./register.html" id="nav-register">Register</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link d-none" href="#" onclick="logout()">Logout</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <!-- <h1 class="pt-5">Blogs HTML</h1> -->
+  
+  <main class="container my-5">
+    <!-- Header Blogs -->
+    <section id="header-blogs" class="pt-5">
+      <div class="row align-items-center">
+        <div class="col-md-6 text-center">
+          <h2>Start Improving Your Knowledge</h2>
+          <h5>By Reading Bloving</h5>
+          <img
+            src="./assets/images/blogpage.gif"
+            class="card-img-top w-75"
+            alt="img-header-blog"
+          />
+        </div>
+        <!-- Hot Blogs -->
+        <div class="col-md-6 align-self-start" id="hot-blogs">
+          <div class="card">
+            <div class="card-header">
+              <h5>What's Hot ?</h5>
+            </div>
+            <div class="card-body">
+              <ul class="list-unstyled" id="list-hot-blogs">
+                <!-- <li class="my-2">
+                  <h5>
+                    This Relentless Pandemic Can Tax Your Mental Health.
+                    Here’s How To Cope
+                  </h5>
+                  <a href="./detailBlog.html" class="btn btn-outline-pink"
+                    >Read More</a
+                  >
+                </li> -->
+                <!-- <li class="my-2">
+                  <h5>
+                    How Is Flu Season Different During The COVID-19 Pandemic?
+                  </h5>
+                  <a href="./detailBlog.html" class="btn btn-outline-pink"
+                    >Read More</a
+                  >
+                </li> -->
+                <!-- <li class="my-2">
+                  <h5>
+                    If You’re Tired All The Time, It Could Be Chronic Fatigue
+                    Syndrome
+                  </h5>
+                  <a href="./detailBlog.html" class="btn btn-outline-pink"
+                    >Read More</a
+                  >
+                </li> -->
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- List All Blogs -->
+    <section class="container my-4" id="all-blogs">
+      <h2 class="text-center mb-5">Our Blogs</h2>
+      <div class="row row-cols-1 row-cols-md-3 g-4" id="list-blogs">
+        <!-- Card 1 -->
+        <!-- <div class="col">
+          <div class="card card-blog">
+            <img
+              src="./assets/images/blog-1.jpg"
+              class="card-img-top"
+              alt="img-blog"
+            />
+            <div class="card-body">
+              <h5 class="card-title">
+                This Relentless Pandemic Can Tax Your Mental Health. Here’s
+                How To Cope
+              </h5>
+              <a href="./detailBlog.html" class="btn bg-pink"
+                >Read More</a
+              >
+            </div>
+            <div class="card-footer d-flex justify-content-between">
+              <div>
+                <i class="fa-solid fa-user"></i>
+                By Stephanie
+              </div>
+              <div>
+                <i class="fa-solid fa-calendar"></i>
+                15 Sep, 2021
+              </div>
+            </div>
+          </div>
+        </div> -->
+        <!-- Card 2 -->
+        <!-- <div class="col">
+          <div class="card card-blog">
+            <img
+              src="./assets/images/blog-2.jpg"
+              class="card-img-top"
+              alt="img-blog"
+            />
+            <div class="card-body">
+              <h5 class="card-title">
+                How Is Flu Season Different During The COVID-19 Pandemic?
+              </h5>
+              <a href="./detailBlog.html" class="btn bg-pink"
+                >Read More</a
+              >
+            </div>
+            <div class="card-footer d-flex justify-content-between">
+              <div>
+                <i class="fa-solid fa-user"></i>
+                By Stephanie
+              </div>
+              <div>
+                <i class="fa-solid fa-calendar"></i>
+                15 Sep, 2021
+              </div>
+            </div>
+          </div>
+        </div> -->
+        <!-- Card 3 -->
+        <!-- <div class="col">
+          <div class="card card-blog">
+            <img
+              src="./assets/images/blog-3.jpg"
+              class="card-img-top"
+              alt="img-blog"
+            />
+            <div class="card-body">
+              <h5 class="card-title">
+                If You’re Tired All The Time, It Could Be Chronic Fatigue
+                Syndrome
+              </h5>
+              <a href="./detailBlog.html" class="btn bg-pink"
+                >Read More</a
+              >
+            </div>
+            <div class="card-footer d-flex justify-content-between">
+              <div>
+                <i class="fa-solid fa-user"></i>
+                By Stephanie
+              </div>
+              <div>
+                <i class="fa-solid fa-calendar"></i>
+                15 Sep, 2021
+              </div>
+            </div>
+          </div>
+        </div> -->
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="pt-3 my-4">
+    <p class="text-center text-muted">
+      Created By Bloving &copy; 2022 | All Rights Reserved
+    </p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+  <script type="module">
+    import dataBlogs from './assets/js/data-blogs.js'
+
+    // console.log(dataBlogs)
+
+    // untuk list hot blogs
+    const elListHotBlogs = document.getElementById('list-hot-blogs')
+
+    for (let i = 0; i < 3; i++) {
+      const blog = dataBlogs[i]
+      const tempList = `
+        <li class="my-2">
+          <h5>
+            ${blog.title}
+          </h5>
+          <a href="./detailBlog.html?id=${blog.id}" class="btn btn-outline-pink"
+            >Read More</a
+          >
+        </li>
+      `
+      elListHotBlogs.insertAdjacentHTML('afterbegin', tempList)
+    }
+
+    // untuk list all blogs
+    const elListAllBlogs = document.getElementById('list-blogs')
+    for (let i = 0; i < dataBlogs.length; i++) {
+      const blog = dataBlogs[i]
+      const tempCard = `
+      <div class="col">
+          <div class="card card-blog">
+            <img
+              src="${blog.img_url}"
+              class="card-img-top"
+              alt="img-blog"
+            />
+            <div class="card-body">
+              <h5 class="card-title">
+                ${blog.title}
+              </h5>
+              <a href="./detailBlog.html?id=${blog.id}" class="btn bg-pink"
+                >Read More</a
+              >
+            </div>
+            <div class="card-footer d-flex justify-content-between">
+              <div>
+                <i class="fa-solid fa-user"></i>
+                By ${blog.author}
+              </div>
+              <div>
+                <i class="fa-solid fa-calendar"></i>
+                ${blog.date}
+              </div>
+            </div>
+          </div>
+        </div>
+      `
+      elListAllBlogs.insertAdjacentHTML('afterbegin', tempCard)
+    }
+  </script>
+  <script src="./assets/js/index.js"></script>
+
+</body>
+</html>

@@ -22,3 +22,9 @@
         - [Object](/jsIntermediate/object/index.js)
         
         - [Web Storage](/jsIntermediate/webStorage/)
+
+        - [Asynchronous](/jsIntermediate/asynchronous/index.js)
+
+4. Group Project Web Development
+
+    - [Sample Project](/demo-vanilla)
