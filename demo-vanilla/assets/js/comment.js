@@ -38,7 +38,8 @@ elFormComment.addEventListener('submit', function (event) {
         localStorage.setItem(`comments_${id}`, JSON.stringify(dataComments))
         elInputComment.value = ''
 
-        getListComments()
+        // getListComments()
+        window.location.reload()
       } else {
         // jika user belum login, maka harus login terlebih dahulu
 
@@ -69,7 +70,7 @@ elFormComment.addEventListener('submit', function (event) {
           elInputComment.value = ''
           elInputUsername.value = ''
   
-          getListComments()
+          // getListComments()
 
           window.location.reload()
         }
