@@ -27,7 +27,16 @@ elFormLogin.addEventListener('submit', function (event) {
           // SUCCESS login
           const username = findAccount.username
           localStorage.setItem('userLogin', username)
-          window.location.href = './index.html'
+          
+
+          const pathBeforeLogin = localStorage.getItem('pathBeforeLogin')
+
+          if (pathBeforeLogin) {
+            localStorage.removeItem('pathBeforeLogin')
+            window.location.href = pathBeforeLogin
+          } else {
+            window.location.href = './index.html'
+          }
         } else {
           elInputPassword.value = ''
           alert('Invalid account !')
@@ -56,3 +65,4 @@ elCheckboxPass.addEventListener('click', function () {
     elInputPassword.setAttribute('type', 'password')
   }
 })
+

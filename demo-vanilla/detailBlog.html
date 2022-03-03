@@ -46,7 +46,7 @@
               <a class="nav-link" href="./register.html" id="nav-register">Register</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link d-none" href="#" onclick="logout()">Logout</a>
+              <a class="nav-link d-none" href="#" id="nav-logout" onclick="logout()">Logout</a>
             </li>
           </ul>
         </div>
@@ -112,28 +112,32 @@
           <div class="col-10">
             <!-- comment input -->
             <div class="comment-area my-3">
-              <form action="" class="form-comment">
-                <h6><b>Leave A Comment Here!</b></h6>
+              <form action="" class="form-comment" id="form-comment">
+                <h6 class="mb-3"><b>Leave A Comment Here!</b></h6>
+                <!-- Jika tidak menggunakan page login -->
+                <label for="username" class="form-control-login">Username</label>
+                <input type="text" id="input-username" class="form-control my-2 form-control-login" placeholder="John">
+                <label for="input-comment" class="mt-2 form-control-login">Context</label>
                 <textarea
-                  class="form-control my-3"
+                  class="form-control my-2"
                   id="input-comment"
                   rows="2"
                   placeholder="Write something here..."
                 ></textarea>
-                <button type="submit" class="btn bg-pink px-4">Send</button>
+                <button type="submit" class="btn bg-pink px-4 mt-2">Send</button>
               </form>
               <!-- comment value -->
               <div class="comment-value mt-4">
                 <h6>Comments:</h6>
-                <ul class="comment-list my-3">
-                  <li>
+                <ul class="comment-list my-3" id="comment-list">
+                  <!-- <li>
                     <h6><b>Ani</b></h6>
                     <p>Ini bagus</p>
                   </li>
                   <li>
                     <h6><b>Riko</b></h6>
                     <p>Sepertinya ada yang kurang</p>
-                  </li>
+                  </li> -->
                 </ul>
               </div>
             </div>
@@ -188,7 +192,7 @@
       }
     }
   </script>
-    <script src="./assets/js/index.js"></script>
-
+  <script src="./assets/js/index.js"></script>
+  <script src="./assets/js/comment.js"></script>
 </body>
 </html>

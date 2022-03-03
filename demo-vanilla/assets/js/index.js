@@ -40,4 +40,25 @@ function logout () {
   if (elNavLogout) {
     elNavLogout.classList.add("d-none");
   }
+
+  checkLogin()
 }
+
+function checkLogin () {
+  const userLogin = localStorage.getItem('userLogin')
+  const elFormControlLogin = document.getElementsByClassName('form-control-login')
+
+  for (let i = 0; i < elFormControlLogin.length; i++) {
+    const elements = elFormControlLogin[i]
+
+    if (userLogin) {
+      // jika sudah login, maka tidak perlu menampilkan form login
+      elements.classList.add('d-none')
+    } else {
+      // jika belum, perlu menampilkan form login
+      elements.classList.remove('d-none')
+    }
+  }
+}
+
+checkLogin()
