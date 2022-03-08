@@ -1,0 +1,13 @@
+#hot-blogs .card-header {
+  background-color: #c53058;
+  color: white;
+}
+
+.card-blog img {
+  height: 250px;
+  width: 100%;
+}
+
+.card.card-blog {
+  height: 420px;
+}
