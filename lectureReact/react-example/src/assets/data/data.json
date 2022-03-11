@@ -1,0 +1,34 @@
+[
+  {
+    "id": 1,
+    "createdAt": "Jul 17, 2021",
+    "name": "Blog 1",
+    "title": "Title untuk blog 1",
+    "imgUrl": "https://png.pngtree.com/png-vector/20200320/ourmid/pngtree-corona-virus-cartoon-vector-illustration-with-facial-expression-png-image_2163086.jpg",
+    "author": "Author 1"
+  },
+  {
+    "id": 2,
+    "createdAt": "Jul 17, 2021",
+    "name": "Blog 2",
+    "title": "Title untuk blog 2",
+    "imgUrl": "https://png.pngtree.com/png-vector/20200320/ourmid/pngtree-corona-virus-cartoon-vector-illustration-with-facial-expression-png-image_2163086.jpg",
+    "author": "Author 2"
+  },
+  {
+    "id": 3,
+    "createdAt": "Jul 17, 2021",
+    "name": "Blog 3",
+    "title": "Title untuk blog 3",
+    "imgUrl": "https://png.pngtree.com/png-vector/20200320/ourmid/pngtree-corona-virus-cartoon-vector-illustration-with-facial-expression-png-image_2163086.jpg",
+    "author": "Author 3"
+  },
+  {
+    "id": 4,
+    "createdAt": "Jul 17, 2021",
+    "name": "Blog 4",
+    "title": "Title untuk blog 4",
+    "imgUrl": "https://png.pngtree.com/png-vector/20200320/ourmid/pngtree-corona-virus-cartoon-vector-illustration-with-facial-expression-png-image_2163086.jpg",
+    "author": "Author 4"
+  }
+]
